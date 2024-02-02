@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="About | Jan Grassegger" description="About Page from Jan Grassegger">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="About"
+				tagline="Oh you're still here? Take a look below to learn more about me!"
+			>
+				<img
+					width="1553"
+					height="873"
+					src="/assets/Jan_Banner.jpg"
+					alt="Jan Grassegger sitting on a park bench looking into the camera"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Background</h2>
+				<div class="content">
+					<p>Born into a small Village in Austria, I had no idea what to expect from life, my childhood went by faster than I'd hoped. One day I fell asleep and the next thing I remember is I waking up in a school for higher education in IT. Struggling my way through the different subjects and many more challenges to come I'm just about to graduate from this school and step into the next phase of my life. </p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">My Education</h2>
+				<div class="content">
+					<li>Higher Education in IT at the HTL Saalfelden 2024 - 2019</li>
+					<li>Cisco Academy Cybersecurity Course</li>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Skills</h2>
+				<div class="content">
+					<li>C# Asp.net</li>
+					<li>C++</li>
+					<li>Python</li>
+					<li>MongoDB + MongoDB Atlas</li>
+					<li>Microsoft Office</li>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
